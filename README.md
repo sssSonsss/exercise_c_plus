@@ -1,6 +1,10 @@
 # Hệ Thống Ví Điểm (Wallet System)
 
-Hệ thống quản lý ví điểm với các tính năng bảo mật và xác thực người dùng.
+[![GitHub](https://img.shields.io/github/license/sssSonsss/exercise_c_plus)](https://github.com/sssSonsss/exercise_c_plus/blob/main/LICENSE)
+[![C++](https://img.shields.io/badge/C++-17-blue.svg)](https://isocpp.org/std/the-standard)
+[![CMake](https://img.shields.io/badge/CMake-3.10+-green.svg)](https://cmake.org/)
+
+Hệ thống quản lý ví điểm với các tính năng bảo mật và xác thực người dùng. Dự án được phát triển bằng C++17, sử dụng OpenSSL cho mã hóa và xác thực.
 
 ## Tính Năng Chính
 
@@ -15,14 +19,15 @@ Hệ thống quản lý ví điểm với các tính năng bảo mật và xác 
 - Tạo ví tự động khi đăng ký
 - Xem số dư
 - Chuyển điểm với xác thực OTP
-- Giới hạn số lần chuyển điểm trong ngày
-- Giới hạn số điểm tối đa
+- Giới hạn số lần chuyển điểm trong ngày (tối đa 10 lần)
+- Giới hạn số điểm tối đa (10,000,000 điểm)
 
 ### Bảo Mật
 - Mật khẩu được mã hóa bằng SHA-256
 - Xác thực OTP qua email
 - Giới hạn số lần chuyển điểm
 - Khóa tài khoản tạm thời khi có dấu hiệu bất thường
+- Kiểm tra và xác thực đầu vào
 
 ### Quản Trị
 - Tạo tài khoản người dùng mới
@@ -38,21 +43,20 @@ Hệ thống quản lý ví điểm với các tính năng bảo mật và xác 
 
 ## Cài Đặt
 
-1. Cài đặt OpenSSL:
+1. Clone repository:
+```bash
+git clone https://github.com/sssSonsss/exercise_c_plus.git
+cd exercise_c_plus
+```
+
+2. Cài đặt OpenSSL (nếu chưa có):
 ```bash
 brew install openssl@3
 ```
 
-2. Clone repository:
+3. Build dự án:
 ```bash
-git clone [repository-url]
-cd wallet_system
-```
-
-3. Tạo thư mục build và build dự án:
-```bash
-mkdir build
-cd build
+mkdir build && cd build
 cmake ..
 make
 ```
@@ -72,22 +76,22 @@ make
 ## Cấu Trúc Dự Án
 
 ```
-wallet_system/
+exercise_c_plus/
 ├── include/
-│   ├── database.h
-│   ├── user.h
-│   ├── wallet.h
-│   ├── transaction.h
-│   └── otp.h
+│   ├── database.h    # Quản lý cơ sở dữ liệu
+│   ├── user.h        # Quản lý người dùng
+│   ├── wallet.h      # Quản lý ví
+│   ├── transaction.h # Quản lý giao dịch
+│   └── otp.h         # Xác thực OTP
 ├── src/
-│   ├── main.cpp
-│   ├── database.cpp
-│   ├── user.cpp
-│   ├── wallet.cpp
-│   ├── transaction.cpp
-│   └── otp.cpp
-├── CMakeLists.txt
-└── README.md
+│   ├── main.cpp      # Điểm vào chương trình
+│   ├── database.cpp  # Triển khai database
+│   ├── user.cpp      # Triển khai user
+│   ├── wallet.cpp    # Triển khai wallet
+│   ├── transaction.cpp # Triển khai transaction
+│   └── otp.cpp       # Triển khai OTP
+├── CMakeLists.txt    # Cấu hình build
+└── README.md         # Tài liệu dự án
 ```
 
 ## Bảo Mật
@@ -100,8 +104,19 @@ wallet_system/
 
 ## Đóng Góp
 
-Mọi đóng góp đều được hoan nghênh. Vui lòng tạo issue hoặc pull request để đóng góp.
+Mọi đóng góp đều được hoan nghênh. Vui lòng:
+1. Fork dự án
+2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
+3. Commit thay đổi (`git commit -m 'Add some AmazingFeature'`)
+4. Push lên branch (`git push origin feature/AmazingFeature`)
+5. Tạo Pull Request
 
 ## Giấy Phép
 
-[MIT License](LICENSE) 
+Dự án này được phân phối dưới giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết.
+
+## Liên Hệ
+
+Nguyễn Sơn - [GitHub](https://github.com/sssSonsss)
+
+Project Link: [https://github.com/sssSonsss/exercise_c_plus](https://github.com/sssSonsss/exercise_c_plus) 
